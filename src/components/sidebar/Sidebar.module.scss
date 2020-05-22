@@ -1,0 +1,31 @@
+
+//**************** aside ****************
+
+.aside {
+  height: auto;
+  background-color: rgb(51, 49, 49);
+  color: aquamarine;
+  grid-area: aside;
+}
+
+.nav {
+  padding: 20px 0;
+  width: 100%;
+  height: auto;
+
+  .link {
+    margin-left: 20px;
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.activeLink {
+  color: yellow !important;  
+}
+
+// ********** end aside ******************
