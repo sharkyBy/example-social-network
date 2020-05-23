@@ -1,18 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./PostItem.module.scss";
 import ava1 from "../../../../img/ava/ava1.jpg";
 import like from "../../../../img/like.png";
 import dislike from "../../../../img/dislike.png";
 
 export default function PostItem(props) {
-  const [countLike, setCountLike] = useState(0);
-  const [countDislike, setCountDislike] = useState(0);
-
-  const handleClick = (e)=> {
-    return (
-      e.currentTarget.name === 'like' ? setCountLike(countLike+1): setCountDislike(countDislike+1)
-      )
-    };
   
   
   return (
@@ -25,12 +17,12 @@ export default function PostItem(props) {
 
       <div className={style.like_container}>
         <div>
-          <img src={like} alt="like" onClick={handleClick} name='like' />
-          <span >{`+${countLike}`}</span>
+          <img src={like} alt="like" name='like' />
+          <span > {props.like !==0 ?`+${props.like}`: `${props.like}`} </span>
         </div>
         <div>
-          <img src={dislike} alt="dislike" onClick={handleClick} name='dislike' />
-          <span>{`-${countDislike}`}</span>
+          <img src={dislike} alt="dislike" name='dislike' />
+          <span> {props.dislike !==0 ?`-${props.dislike}`: `${props.dislike}`} </span>
         </div>
       </div>
     </div>

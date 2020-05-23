@@ -6,6 +6,7 @@ import Posts from './posts/Posts';
 import UserInfo from './userInfo/UserInfo';
 
 function Main(props) {
+  // debugger;
   return (
     <main className={style.main}>
           <div className={style.main__container}>
@@ -15,7 +16,7 @@ function Main(props) {
                         
             <UserInfo />
             <NewPost />
-            <Posts />
+            <Posts post={props.post} />
 
           </div>
         </main>
