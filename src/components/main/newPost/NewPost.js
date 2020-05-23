@@ -14,11 +14,11 @@ function NewPost(props) {
   }
 
   return (
-    <div className={style.post_container}>
+    <div className={`${style.post_container} ${props.modClassName}`} >
       <h2>New post</h2>
       <div className={style.message}>
         <textarea type="text" ref={newPostElement}/> 
-        <button type="submit" onClick={addPost}>Send</button>
+        <button type="submit" onClick={addPost} style={props.style}>Send</button>
       </div>
     </div>
   );
