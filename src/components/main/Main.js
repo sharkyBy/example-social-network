@@ -15,7 +15,7 @@ function Main(props) {
             </div>
                         
             <UserInfo />
-            <NewPost addPost={props.addPost} updatePost={props.updatePost} />
+            <NewPost addPost={props.addPost} updatePost={props.updatePost} newPostText={props.newPostText} />
             <Posts post={props.post} />
 
           </div>

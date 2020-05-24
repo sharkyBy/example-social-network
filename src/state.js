@@ -1,4 +1,6 @@
-import { reRenderTree } from './reRenderTree'
+let reRenderTree = () => {
+  
+} 
 
 export const staticData = {
   header: {
@@ -25,7 +27,7 @@ export const staticData = {
       { id: 3, post: "Regular or decaf?", like: 2, dislike: 0 },
       { id: 4, post: "Decaf, please", like: 0, dislike: 0 },
     ],
-    newPostText:"valik",
+    newPostText:"",
   },
   dialog: {
     users: [
@@ -46,24 +48,30 @@ export const staticData = {
 };
 
 // Функция добавления поста 
-export let addPost = (postMessage) => {
-  
+export const addPost = () => {  
   let newPost = {
     id:5,
-    post: postMessage,
+    post: staticData.main.newPostText,
     like:0,
     dislike:0
   };
   staticData.main.post.push(newPost);
-  reRenderTree(staticData);
+  staticData.main.newPostText=""                 // очищаем поле ввода
+  reRenderTree();
 };
 
 //функцмя обновления почта
-export let updatePost = (updateTextArea) => {
+export const updatePost = (updateTextArea) => {
   
   staticData.main.newPostText = updateTextArea;
-  reRenderTree(staticData);
+  reRenderTree();
 };
+
+//функция по переррендеру страницы
+
+export const subscribe = (observer) => {
+  reRenderTree = observer;
+}
 
 
  

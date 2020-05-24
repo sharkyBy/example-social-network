@@ -7,11 +7,8 @@ function NewPost(props) {
 
  
 
-  let handlerClickSend = ()=> {
-    
-     let text = newPostElement.current.value;
-     props.addPost(text);
-     
+  let handlerClickSend = ()=> {    
+     props.addPost();     
   }
 
   let handleChange = () => {
