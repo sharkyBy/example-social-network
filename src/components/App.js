@@ -18,7 +18,7 @@ function App(props) {
         
           <Switch>
             <Route exact path="/"> <Redirect to='/profile' /> </Route> 
-            <Route exact path="/profile"> <Main {...props.main} /> </Route> 
+            <Route exact path="/profile"> <Main {...props.main} addPost={props.addPost} updatePost={props.updatePost} /> </Route> 
             <Route  path="/message"> <Dialogs {...props.dialog} /> </Route>
             <Route exact path="/news" render={ () => <News /> } />
             <Route exact path="/music" component={Music} />

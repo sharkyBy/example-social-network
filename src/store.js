@@ -1,4 +1,4 @@
-
+import { reRenderTree } from './reRenderTree'
 
 export const staticData = {
   header: {
@@ -25,6 +25,7 @@ export const staticData = {
       { id: 3, post: "Regular or decaf?", like: 2, dislike: 0 },
       { id: 4, post: "Decaf, please", like: 0, dislike: 0 },
     ],
+    newPostText:"valik",
   },
   dialog: {
     users: [
@@ -43,3 +44,26 @@ export const staticData = {
     ],
   },
 };
+
+// Функция добавления поста 
+export let addPost = (postMessage) => {
+  
+  let newPost = {
+    id:5,
+    post: postMessage,
+    like:0,
+    dislike:0
+  };
+  staticData.main.post.push(newPost);
+  reRenderTree(staticData);
+};
+
+//функцмя обновления почта
+export let updatePost = (updateTextArea) => {
+  
+  staticData.main.newPostText = updateTextArea;
+  reRenderTree(staticData);
+};
+
+
+ 
