@@ -2,17 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 import{ BrowserRouter} from "react-router-dom";
-import { staticData, addPost, updatePost, subscribe } from './state'
+import store from './store'
 
 
 
 
 
- let RenderTree =() => {
+ let renderTree =() => {
   ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App {...staticData} addPost={addPost} updatePost={updatePost} />
+      <App {...store} dispatch={store.dispatch.bind(store)} />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
@@ -20,7 +20,7 @@ import { staticData, addPost, updatePost, subscribe } from './state'
 }
 
 
-RenderTree();
-subscribe(RenderTree);
+renderTree();
+store.subscribe(renderTree);
 
 

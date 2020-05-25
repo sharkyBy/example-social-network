@@ -1,29 +1,43 @@
 import React from "react";
 import style from "./NewPost.module.scss";
 
+import { addPostActionCreator, updatePostActionCreator } from '../../../store';
+import { dialogAddUserActionCreator, dialogUpdateUserActionCreator } from '../../../store';
+
 function NewPost(props) {
-// debugger;
-  let newPostElement = React.createRef();
+  let newPostElement = React.createRef(); 
 
- 
 
-  let handlerClickSend = ()=> {    
-     props.addPost();     
+  let handlerClickSend = ()=> { 
+    let choice = window.location.toString().includes("message") ? dialogAddUserActionCreator():
+    window.location.toString().includes("profile")? addPostActionCreator(): false ;
+     props.dispatch( choice );    
   }
 
   let handleChange = () => {
     let text1 = newPostElement.current.value;
-    props.updatePost(text1);
-    console.log(text1)
+    let choice = window.location.toString().includes("message") ? dialogUpdateUserActionCreator(text1):
+    window.location.toString().includes("profile") ? updatePostActionCreator(text1):false;
+ 
+    
+    // let action = updatePostActionCreator(text1);
+    props.dispatch( choice);
+    
    
   }
-
+  
+  
+    let choice = window.location.toString().includes("message") ? props.newUser: 
+    window.location.toString().includes("profile") ? props.newPostText: false;
+   
+    
+  
   return (
     <div className={`${style.post_container} ${props.modClassName}`} >
-      <h2>New post</h2>
+      <h2>{props.title}</h2>
       <div className={style.message}>
-        <textarea type="text" ref={newPostElement} onChange={handleChange} value={props.newPostText}/> 
-        <button type="submit" onClick={handlerClickSend} style={props.style}>Send</button>
+        <textarea type="text" ref={newPostElement} onChange={handleChange} value={choice}/> 
+        <button type="button" onClick={handlerClickSend} style={props.style}>Send</button>
       </div>
     </div>
   );

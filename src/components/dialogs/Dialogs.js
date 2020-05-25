@@ -4,14 +4,16 @@ import DialogsItem from "./dialogsItem/DialogsItem";
 import Message from './message/Message';
 import NewPost from '../main/newPost/NewPost';
 
+
 export default function Dialogs(props) {
   let modifiedStyle = {  
-    gridColumn: '1 / 3',  
+    
     color:'rgba(255, 255, 255, .8',
     border:'1px solid rgba(255, 255, 255, .8)',
     
   }
-  
+
+   
   const usersList = props.users.map((item, index)=>{
   return <DialogsItem name={item.name} id={index+1} key={`userN_${index}`}/>
 });
@@ -23,7 +25,14 @@ export default function Dialogs(props) {
       </div>
       
       <Message messages={props.messages}/>
-      <NewPost style={modifiedStyle} modClassName={style.modified}/>
+      <NewPost 
+        style={modifiedStyle} 
+        modClassName={style.modified} 
+        dispatch={props.dispatch}
+        newUser={props.newUser}
+        title='Add user'
+        />
     </div>
   )
+
 }
