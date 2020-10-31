@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import Header from "./header/Header";
+import Header from "../components/main/header/Header";
 import Sidebar from "./sidebar/Sidebar";
 import Main from "./main/Main";
 import Dialogs from "./dialogs/Dialogs";

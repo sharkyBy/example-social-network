@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Dialogs.module.scss';
 import DialogsItem from "./dialogsItem/DialogsItem";
 import Message from './message/Message';
-import NewPost from '../main/newPost/NewPost';
+import NewPost from '../profile/newPost/NewPost';
 
 
 export default function Dialogs(props) {

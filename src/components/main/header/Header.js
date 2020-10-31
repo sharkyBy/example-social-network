@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../img/logo/logo2.png"; // Импортируем картики
+import logo from "../../../img/logo/logo2.png"; // Импортируем картики
 import style from './Header.module.scss';
 
 function Header(props) {
